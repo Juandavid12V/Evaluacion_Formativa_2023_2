@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity2">
+
+    <EditText
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pick your username" />
+
+    <EditText
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:hint="Pick your password" />
+
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="saludar"
+        android:text="Login inline" />
+
+    <Button
+        android:id="@+id/btnLogIn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login interface" />
+
+    <Button
+        android:id="@+id/btnLogIn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login delegate" />
+</LinearLayout>

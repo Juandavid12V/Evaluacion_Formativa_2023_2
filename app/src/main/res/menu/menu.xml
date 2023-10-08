@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/agree"
+        android:title="View Agreements">
+    </item>
+    <item
+        android:id="@+id/badThread"
+        android:title="Bad Thread">
+    </item>
+    <item
+        android:id="@+id/GoodThread"
+        android:title="Good Thread">
+    </item>
+</menu>

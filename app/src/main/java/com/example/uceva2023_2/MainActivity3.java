@@ -26,18 +26,16 @@ import java.util.HashMap;
 
 public class MainActivity3 extends AppCompatActivity {
 
-
     private SimpleExoPlayer exoPlayer;
     private PlayerView playerView;
     private HashMap<String, String> estacionesMap;
-    private String radioUrl = "http://livestreaming3.esradio.fm/stream64.mp3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        HashMap<String, String> estacionesMap = new HashMap<>();
+        estacionesMap = new HashMap<>();
         estacionesMap.put("Radio 1", "http://livestreaming3.esradio.fm/stream64.mp3");
         estacionesMap.put("Radio 2", "http://url_para_radio_2.com/stream");
 
@@ -46,11 +44,9 @@ public class MainActivity3 extends AppCompatActivity {
         String radioUrl = estacionesMap.get(nombreEstacion);
 
         reproducirRadio(radioUrl);
-
     }
 
-    private void reproducirRadio(String nombreEstacion) {
-
+    private void reproducirRadio(String radioUrl) {
         exoPlayer = new SimpleExoPlayer.Builder(this).build();
         playerView.setPlayer(exoPlayer);
 

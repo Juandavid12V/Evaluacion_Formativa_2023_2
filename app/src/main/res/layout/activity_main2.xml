@@ -1,42 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".MainActivity2">
+    android:padding="16dp">
 
-    <EditText
-        android:id="@+id/tv1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tituloEstaciones"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Pick your username" />
+        android:text="Estaciones"
+        android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/tv2"
+    <ListView
+        android:id="@+id/listaEstaciones"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:password="true"
-        android:hint="Pick your password" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
 
-    <Button
-        android:id="@+id/btnLogIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="saludar"
-        android:text="Login inline" />
-
-    <Button
-        android:id="@+id/btnLogIn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login interface" />
-
-    <Button
-        android:id="@+id/btnLogIn3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login delegate" />
 </LinearLayout>

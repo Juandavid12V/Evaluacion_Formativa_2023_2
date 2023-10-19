@@ -7,10 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class MainActivity2 extends AppCompatActivity  implements  View.OnClickListener{
 
@@ -21,21 +25,38 @@ public class MainActivity2 extends AppCompatActivity  implements  View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        //enlazamiento
-        bnt2 = findViewById(R.id.btnLogIn2);
-        bnt3 = findViewById(R.id.btnLogIn3);
-        //enlazamiento
-        tv1 = findViewById(R.id.tv1);
-        tv2 = findViewById(R.id.tv2);
-        Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
-        bnt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "hola 1", Toast.LENGTH_LONG).show();
-            }
+
+
+        ListView listViewEstaciones = findViewById(R.id.listaEstaciones);
+
+
+        String[] estaciones = {
+                "Radio 1",
+                "Radio 2",
+                "Radio 3",
+                "Radio 4",
+                "Radio 5"
+
+        };
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,                            // Contexto
+                R.layout.items_estacion,           // ID del diseño del ítem
+                estaciones                       // Datos
+        );
+
+
+
+        listViewEstaciones.setAdapter(adapter);
+        listViewEstaciones.setOnItemClickListener((parent, view, position, id) -> {
+            String estacionSeleccionada = estaciones[position];
+            Intent ir = new Intent(this, MainActivity3.class);
+            ir.putExtra("nombreEstacion", estacionSeleccionada);
+            startActivity(ir);
         });
-        bnt3.setOnClickListener(this);
+
     }
+
 
 
     public void saludar(View d){

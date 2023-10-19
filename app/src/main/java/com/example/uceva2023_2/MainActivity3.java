@@ -10,22 +10,56 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Toast;;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.Player;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.ProgressiveMediaSource;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.ui.PlayerView;
+import com.google.android.exoplayer2.util.Util;
+
+
+
+import java.net.URL;
+import java.util.HashMap;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    TextView tv3;
-    int contador=0;
+
+    private SimpleExoPlayer exoPlayer;
+    private PlayerView playerView;
+    private HashMap<String, String> estacionesMap;
+    private String radioUrl = "http://livestreaming3.esradio.fm/stream64.mp3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        //Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
-        Bundle received = getIntent().getExtras();
-        tv3 = findViewById(R.id.tv3);
-        tv3.setText(received.getString("username") + "" + received.getString("passwd"));
+
+        HashMap<String, String> estacionesMap = new HashMap<>();
+        estacionesMap.put("Radio 1", "http://livestreaming3.esradio.fm/stream64.mp3");
+        estacionesMap.put("Radio 2", "http://url_para_radio_2.com/stream");
+
+        Intent intent = getIntent();
+        String nombreEstacion = intent.getStringExtra("nombreEstacion");
+        String radioUrl = estacionesMap.get(nombreEstacion);
+
+        reproducirRadio(radioUrl);
 
     }
+
+    private void reproducirRadio(String nombreEstacion) {
+
+        exoPlayer = new SimpleExoPlayer.Builder(this).build();
+        playerView.setPlayer(exoPlayer);
+
+        MediaItem mediaItem = MediaItem.fromUri(radioUrl);
+        exoPlayer.setMediaItem(mediaItem);
+        exoPlayer.prepare();
+        exoPlayer.setPlayWhenReady(true);
+    }
+
 
     @Override
     protected void onPause() {
@@ -45,10 +79,6 @@ public class MainActivity3 extends AppCompatActivity {
         startActivity(ir);
     }
 
-    public void contar(View d){
-        contador++;
-        tv3.setText("Contador: "+ contador);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,15 +98,4 @@ public class MainActivity3 extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("contadorEjemplo",contador);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        contador = savedInstanceState.getInt("contadorEjemplo");
-    }
 }

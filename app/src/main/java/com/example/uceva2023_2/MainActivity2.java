@@ -1,23 +1,21 @@
 package com.example.uceva2023_2;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.HashMap;
 
-public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity2 extends AppCompatActivity {
 
+    private String estacionActual;
+    private HashMap<String, String> estacionesMap;
+    private Button buttonPlay, buttonStop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +46,4 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        // Implementa la lógica del clic aquí si es necesario
-    }
 }

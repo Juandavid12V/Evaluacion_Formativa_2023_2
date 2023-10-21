@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/rounded_corner_background"
     android:orientation="vertical"
     tools:context=".MainActivity3">
 
@@ -11,9 +13,11 @@
         android:id="@+id/nombreEstacionView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_corner_button"
         android:text="Estación Actual"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true" />
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"/>
 
     <Button
         android:id="@+id/buttonPlay"

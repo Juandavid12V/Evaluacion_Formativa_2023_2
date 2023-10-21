@@ -22,21 +22,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleText"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="175dp"
         android:layout_centerHorizontal="true"
         android:text="Estaciones"
         android:background="@drawable/rounded_corner_button"
         android:textColor="#FFFFFF"/>
 
-    <Button
-        android:id="@+id/buttonConfiguracion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonEstaciones"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="119dp"
-        android:text="Configuración"
-        android:background="@drawable/rounded_corner_button"
-        android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>

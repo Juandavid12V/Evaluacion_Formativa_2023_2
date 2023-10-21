@@ -1,27 +1,34 @@
 package com.example.uceva2023_2;
 
-
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
-
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity{
 
-    private String estacionActual;
-    private HashMap<String, String> estacionesMap;
-    private Button buttonPlay, buttonStop;
+    Button bnt2,bnt3;
+    EditText tv1, tv2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+
         ListView listViewEstaciones = findViewById(R.id.listaEstaciones);
+
 
         String[] estaciones = {
                 "Radio 1",
@@ -29,13 +36,16 @@ public class MainActivity2 extends AppCompatActivity {
                 "Radio 3",
                 "Radio 4",
                 "Radio 5"
+
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                R.layout.items_estacion,
-                estaciones
+                this,                            // Contexto
+                R.layout.items_estacion,           // ID del diseño del ítem
+                estaciones                       // Datos
         );
+
+
 
         listViewEstaciones.setAdapter(adapter);
         listViewEstaciones.setOnItemClickListener((parent, view, position, id) -> {
@@ -44,6 +54,7 @@ public class MainActivity2 extends AppCompatActivity {
             ir.putExtra("nombreEstacion", estacionSeleccionada);
             startActivity(ir);
         });
+
     }
 
 }
